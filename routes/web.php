@@ -28,4 +28,5 @@ Route::group(['prefix' => 'home/data', 'middleware' => 'can:isGuru'], function()
     Route::post('/siswa/tambah_manual', [AdminController::class, 'tambah_manual'])->name('tambah_manual');
     Route::post('/siswa/tambah_upload', [AdminController::class, 'tambah_upload'])->name('tambah_upload');
 
+    Route::get('/siswa/{id}/edit', [AdminController::class, 'edit_siswa'])->name('edit_siswa');
 });

@@ -28,11 +28,7 @@
                                                 Siswa Excel</i></button>
                                     </div>
 
-
-
-
-
-                                    <div class="col-md-12 mt-3">
+                                    <div class="col-md-12 mt-3 table-responsive">
                                         <table class="table" id="table_data_siswa">
                                             <thead>
                                                 <tr>
@@ -51,9 +47,9 @@
                                                 <tr>
                                                     <td>{{$no++}}</td>
                                                     <td>{{$ds->name}}</td>
-                                                    <td>{{$ds->kelas}}</td>
-                                                    <td>{{$ds->nis}}</td>
-                                                    <td>{{$ds->email}}</td>
+                                                    <td>{{$ds->kelas ?? '-'}}</td>
+                                                    <td>{{$ds->nis ?? '-'}}</td>
+                                                    <td>{{$ds->email ?? '-'}}</td>
                                                     <td>
                                                         @if($ds->foto !== null)
                                                         <span class="badge badge-success">Ada</span>
@@ -70,7 +66,7 @@
                                                                 Menu
                                                             </button>
                                                             <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="{{route('edit_siswa', $ds->id)}}">Edit</a>
                                                                 <a class="dropdown-item" href="#">Hapus</a>
                                                             </div>
                                                         </div>

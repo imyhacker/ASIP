@@ -66,4 +66,12 @@ class AdminController extends Controller
         Excel::import(new SiswaImport, $request->file('file'));
         return redirect()->back()->with('success', 'Data Berhasil Di Upload');
     }
+    public function edit_siswa($id)
+    {
+        $kelas = User::all();
+        $data_siswa = User::find($id);
+        $kelas = $kelas->unique(['kelas']);
+        dd($kelas);
+        //return view('Dashboard/Siswa/edit', compact('data_siswa'));
+    }
 }
