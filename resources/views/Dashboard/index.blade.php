@@ -13,10 +13,38 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>Budget vs Sales</h4>
+                  <h4>Hai Selamat Datang</h4>
                 </div>
                 <div class="card-body">
-                  <canvas id="myChart" height="158"></canvas>
+                  @if(Gate::check('isGuru'))
+                    <h3 class="d-flex justify-content-center">
+                      Selamat Datang di Aplikasi Sistem Informasi Presensi
+                    </h3>
+                  <div class="row mt-4">
+                    <div class="col-md-4 mt-3">
+                    <a href="" class="btn btn-primary btn-block">Data Siswa</a>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                    <a href="" class="btn btn-primary btn-block">Data Siswa</a>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                    <a href="" class="btn btn-primary btn-block">Data Siswa</a>
+                    </div>
+                    <div class="col-md-6 mt-3">
+                    <a href="" class="btn btn-primary btn-block">Data Seluruh Kehadiran Siswa</a>
+
+                    </div>
+                    <div class="col-md-6 mt-3">
+                    <a href="" class="btn btn-primary btn-block">Siswa Siswa</a>
+
+                    </div>
+                  </div>
+                   
+                  @else
+                    <h3 class="d-flex justify-content-center">
+                      Selamat Datang di Aplikasi Sistem Informasi Presensi
+                    </h3>
+                  @endif
                 </div>
               </div>
             </div>
