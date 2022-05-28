@@ -21,5 +21,11 @@
   <!-- Template JS File -->
   <script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
   <script src="https://demo.getstisla.com/assets/js/custom.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+  <script>
+    $(document).ready( function () {
+    $('#table_data_siswa').DataTable();
+} );
+  </script>
 </body>
 </html>

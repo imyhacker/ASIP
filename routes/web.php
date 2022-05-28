@@ -23,6 +23,9 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::group(['prefix' => 'home/data'], function(){
-    Route::get('/siswa', [AdminController::class, 'siswa'])->middleware('can:isGuru,can:isAdmin')->name('data_siswa');
+Route::group(['prefix' => 'home/data', 'middleware' => 'can:isGuru'], function(){
+    Route::get('/siswa', [AdminController::class, 'siswa'])->name('data_siswa');
+    Route::post('/siswa/tambah_manual', [AdminController::class, 'tambah_manual'])->name('tambah_manual');
+    Route::post('/siswa/tambah_upload', [AdminController::class, 'tambah_upload'])->name('tambah_upload');
+
 });
