@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Kelas;
 use App\Imports\SiswaImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -73,5 +74,35 @@ class AdminController extends Controller
         $kelas = $kelas->unique(['kelas']);
         dd($kelas);
         //return view('Dashboard/Siswa/edit', compact('data_siswa'));
+    }
+
+
+
+    // KELAS
+    public function kelas()
+    {
+        // DAPAT PER ITEM KELAS
+       $data = User::all();
+       $unique = $data->unique('kelas');
+       $dupes = $data->diff($unique);
+       //$total = $dupes->count();
+      
+
+        return view('Dashboard/Kelas/index', compact('dupes'));
+    }
+    public function tambah_kelas(Request $request)
+    {
+        $request->validate([
+            'kelas' => 'required|unique:kelas'
+        ]);
+        $data = Kelas::create([
+            'kelas' => $request->input('kelas')
+        ]);
+        return redirect()->back()->with('success', 'Kelas Berhasil Di Tambahkan');
+    }
+    public function lihat_siswa($kelas)
+    {
+        $data = User::where('kelas', $kelas)->get();
+        return view('Dashboard/Kelas/lihat_siswa', compact('data', 'kelas'));
     }
 }
