@@ -31,11 +31,13 @@ Route::group(['prefix' => 'home/data', 'middleware' => 'can:isGuru'], function($
     Route::post('/siswa/tambah_upload', [AdminController::class, 'tambah_upload'])->name('tambah_upload');
 
     Route::get('/siswa/{id}/edit', [AdminController::class, 'edit_siswa'])->name('edit_siswa', $id);
-
-
-    // Kelas
-    Route::get('/kelas', [AdminController::class, 'kelas'])->name('kelas_siswa');
-    Route::post('/kelas/tambah_kelas', [AdminController::class, 'tambah_kelas'])->name('tambah_kelas');
-    Route::get('/kelas/{kelas}/lihat_siswa', [AdminController::class, 'lihat_siswa'])->name('lihat_siswa', $kelas);
+    Route::get('/siswa/{id}/edit/hapus_foto', [AdminController::class, 'hapus_foto'])->name('hapus_foto', $id);
+    Route::post('/siswa/{id}/edit/update', [AdminController::class, 'update_siswa'])->name('update_siswa', $id);
     
+
+    // KELAS
+    Route::post('/siswa/tambah_kelas', [AdminController::class, 'tambah_kelas'])->name('tambah_kelas');
+
+
+
 });

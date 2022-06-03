@@ -14,7 +14,8 @@ class AdminController extends Controller
     public function siswa()
     {
         $data_siswa = User::where('role', 'siswa')->get();
-        return view('Dashboard/Siswa/index', compact('data_siswa'));
+        $kelas = Kelas::all();
+        return view('Dashboard/Siswa/index', compact('data_siswa', 'kelas'));
     }
     public function tambah_manual(Request $request)
     {
@@ -69,26 +70,49 @@ class AdminController extends Controller
     }
     public function edit_siswa($id)
     {
-        $kelas = User::all();
         $data_siswa = User::find($id);
-        $kelas = $kelas->unique(['kelas']);
-        dd($kelas);
-        //return view('Dashboard/Siswa/edit', compact('data_siswa'));
+        $kelas = Kelas::all();
+        //dd($data_siswa);
+        return view('Dashboard/Siswa/edit', compact('data_siswa', 'kelas'));
     }
-
-
-
-    // KELAS
-    public function kelas()
+    public function update_siswa(Request $request, $id)
     {
-        // DAPAT PER ITEM KELAS
-       $data = User::all();
-       $unique = $data->unique('kelas');
-       $dupes = $data->diff($unique);
-       //$total = $dupes->count();
-      
-
-        return view('Dashboard/Kelas/index', compact('dupes'));
+        $file = $request->file('foto');
+        if(!is_null($file)){
+            $request->validate([
+                'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            
+            $fileName = $file->getClientOriginalName();
+            $request->file('foto')->move("foto_profil/", $fileName);
+    
+            $data = User::find($id);
+            $data->name = $request->name;
+            $data->kelas = $request->kelas;
+            $data->nis = $request->nis;
+            $data->email = $request->email;
+            $data->foto = $fileName;
+            $data->role = 'siswa';
+            $data->save();
+    
+            return redirect()->back()->with('success', 'Data Berhasil Diubah');
+        }
+        else{
+            $data = User::find($id);
+            $data->name = $request->name;
+            $data->kelas = $request->kelas;
+            $data->nis = $request->nis;
+            $data->email = $request->email;
+            $data->role = 'siswa';
+            $data->save();
+            return redirect()->back()->with('success', 'Data Berhasil Diubah');
+        }
+    
+    }
+    public function hapus_foto($id)
+    {
+        $data = User::find($id);
+        dd($data);
     }
     public function tambah_kelas(Request $request)
     {
@@ -100,9 +124,5 @@ class AdminController extends Controller
         ]);
         return redirect()->back()->with('success', 'Kelas Berhasil Di Tambahkan');
     }
-    public function lihat_siswa($kelas)
-    {
-        $data = User::where('kelas', $kelas)->get();
-        return view('Dashboard/Kelas/lihat_siswa', compact('data', 'kelas'));
-    }
+    
 }

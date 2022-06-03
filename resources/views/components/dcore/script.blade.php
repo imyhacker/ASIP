@@ -25,6 +25,8 @@
   <script>
     $(document).ready( function () {
     $('#table_data_siswa').DataTable();
+    $('#table_data_kelas').DataTable();
+
 } );
   </script>
 </body>
