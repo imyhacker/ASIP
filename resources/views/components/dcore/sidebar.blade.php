@@ -22,7 +22,7 @@
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Data</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-lin beep beep-sidebar" href="{{route('data_siswa')}}">Data Siswa</a></li>                
-                <li><a class="nav-link beep beep-sidebar" href="https://demo.getstisla.com/components-statistic.html">Data Kelas</a></li>    
+                <li><a class="nav-link beep beep-sidebar" href="{{route('data_guru')}}">Data Guru</a></li>    
             </ul>
             </li>
             <li class="dropdown active">
@@ -36,7 +36,7 @@
            <li class="dropdown active">
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Attendance</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="https://demo.getstisla.com/forms-advanced-form.html">Data Absensiku</a></li>
+                <li><a class="nav-link" href="{{route('absensi')}}">Data Absensiku</a></li>
                 <li><a class="nav-link" href="https://demo.getstisla.com/forms-editor.html">Seluruh Dataku</a></li>
               </ul>
             </li>

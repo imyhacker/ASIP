@@ -24,7 +24,9 @@ class User extends Authenticatable
         'jabatan',
         'kelas',
         'foto',
-        'nis'
+        'nis',
+        'role',
+        'jabatan_guru'
     ];
 
     /**

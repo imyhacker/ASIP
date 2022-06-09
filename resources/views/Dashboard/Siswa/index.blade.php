@@ -68,7 +68,7 @@
                                                             </button>
                                                             <div class="dropdown-menu">
                                                                 <a class="dropdown-item" href="{{route('edit_siswa', $ds->id)}}">Edit</a>
-                                                                <a class="dropdown-item" href="#">Hapus</a>
+                                                                <a class="dropdown-item" href="{{route('hapus_siswa', $ds->id)}}">Hapus</a>
                                                             </div>
                                                         </div>
                                                     </td>
