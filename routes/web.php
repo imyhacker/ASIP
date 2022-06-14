@@ -34,6 +34,7 @@ Route::group(['prefix' => 'home/data', 'middleware' => 'can:isGuru'], function($
     Route::get('/siswa/{id}/edit/hapus_foto', [AdminController::class, 'hapus_foto'])->name('hapus_foto', $id);
     Route::get('/siswa/{id}/hapus_siswa', [AdminController::class, 'hapus_siswa'])->name('hapus_siswa', $id);
     Route::post('/siswa/{id}/edit/update', [AdminController::class, 'update_siswa'])->name('update_siswa', $id);
+    Route::get('/att/data_presensi', [AdminController::class, 'data_presensi'])->name('data_presensi');
     
 
     // Kelas

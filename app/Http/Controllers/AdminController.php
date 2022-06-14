@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Absen;
 use App\Models\Kelas;
 use App\Imports\GuruImport;
 use App\Imports\SiswaImport;
@@ -206,5 +208,12 @@ class AdminController extends Controller
             return redirect()->back()->with('success', 'Data Berhasil Diubah');
         }
     
+    }
+
+    public function data_presensi()
+    {
+        $data = Absen::whereDate('created_at', Carbon::Today())->get();
+        return view('Dashboard/Att/index', compact('data'));
+        //dd($data);
     }
 }

@@ -28,7 +28,7 @@
             <li class="dropdown active">
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Attendance</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="https://demo.getstisla.com/forms-advanced-form.html">Seluruh Kehadiran Siswa</a></li>
+                <li><a class="nav-link" href="{{route('data_presensi')}}">Seluruh Kehadiran Siswa</a></li>
                 <li><a class="nav-link" href="https://demo.getstisla.com/forms-editor.html">Siswa Hadir</a></li>
               </ul>
             </li>
