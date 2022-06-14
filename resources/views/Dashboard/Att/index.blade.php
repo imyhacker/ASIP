@@ -13,7 +13,7 @@
                 <div class="card-header">
                   <h4>Data Absensi Hari Ini [{{date('l')}}]</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     <table class="table" id="table_absen">
                         <thead>
                             <tr>
