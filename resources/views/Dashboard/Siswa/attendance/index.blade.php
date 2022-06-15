@@ -6,7 +6,6 @@
         <x-dcore.sidebar />
         <div class="main-content">
             <section class="section">
-                <x-dcore.card />
                 <x-dcore.sweet />
                 <!-- MAIN OF CENTER CONTENT -->
                 <div class="row">
