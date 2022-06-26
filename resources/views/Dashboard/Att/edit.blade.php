@@ -6,28 +6,25 @@
       <x-dcore.sidebar />
       <div class="main-content">
         <section class="section">
-         
-
         <!-- MAIN OF CENTER CONTENT -->
           <div class="row">
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>Hai Selamat Datang</h4>
+                  <h4>Data Absensi Hari Ini [{{date('l')}}]</h4>
                 </div>
+                <form action="{{route('edit_data_pres_lihat_update', $data->id)}}" method="POST">
+                    @csrf
                 <div class="card-body">
-                  @if(Gate::check('isGuru'))
-                    <h3 class="d-flex justify-content-center">
-                      Selamat Datang di Aplikasi Sistem Informasi Presensi
-                    </h3>
-                  
-                   
-                  @else
-                    <h3 class="d-flex justify-content-center">
-                      Selamat Datang di Aplikasi Sistem Informasi Presensi
-                    </h3>
-                  @endif
+                   <div class="form-group">
+                    <label>Tanggal & Waktu</label>
+                    <input type="datetime-local" class="form-control" name="created_at" value="{{$data->created_at}}">
+                   </div>
+                   <div class="form-group">
+                    <input type="submit" class="btn btn-block btn-outline-success" value="Update">
+                   </div>
                 </div>
+                </form>
               </div>
             </div>
             

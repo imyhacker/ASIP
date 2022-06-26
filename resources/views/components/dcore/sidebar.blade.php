@@ -1,17 +1,17 @@
 <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">ASIP</a>
+            <a href="{{url('/home')}}">ASIP</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">AP</a>
+            <a href="{{url('/home')}}">AP</a>
           </div>
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="dropdown active">
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
               <ul class="dropdown-menu">
-                <li class=active><a class="nav-link" href="index.html">Beranda</a></li>
+                <li class=active><a class="nav-link" href="{{url('/home')}}">Beranda</a></li>
               </ul>
             </li>
          
@@ -28,8 +28,8 @@
             <li class="dropdown active">
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Attendance</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="{{route('data_presensi')}}">Seluruh Kehadiran Siswa</a></li>
-                <li><a class="nav-link" href="https://demo.getstisla.com/forms-editor.html">Siswa Hadir</a></li>
+                <li><a class="nav-link" href="{{route('data_presensi')}}">Kehadiran Per Hari</a></li>
+                <li><a class="nav-link" href="{{route('data_pres_admin')}}">Siswa Hadir</a></li>
               </ul>
             </li>
            @else
@@ -37,22 +37,11 @@
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Attendance</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="{{route('absensi')}}">Data Absensiku</a></li>
-                <li><a class="nav-link" href="https://demo.getstisla.com/forms-editor.html">Seluruh Dataku</a></li>
+                <li><a class="nav-link" href="{{route('data_pres')}}">Seluruh Dataku</a></li>
               </ul>
             </li>
-            <li class="dropdown active">
-              <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Profil</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="https://demo.getstisla.com/forms-advanced-form.html">Profilku</a></li>
-              </ul>
-            </li>
+            
            @endif
-          </ul>
-
-          <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-              <i class="fas fa-rocket"></i> Documentation
-            </a>
-          </div>        
+          </ul>    
         </aside>
       </div>

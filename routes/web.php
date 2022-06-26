@@ -16,10 +16,10 @@ use App\Http\Controllers\SiswaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->to('/login');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -35,7 +35,11 @@ Route::group(['prefix' => 'home/data', 'middleware' => 'can:isGuru'], function($
     Route::get('/siswa/{id}/hapus_siswa', [AdminController::class, 'hapus_siswa'])->name('hapus_siswa', $id);
     Route::post('/siswa/{id}/edit/update', [AdminController::class, 'update_siswa'])->name('update_siswa', $id);
     Route::get('/att/data_presensi', [AdminController::class, 'data_presensi'])->name('data_presensi');
-    
+    Route::get('/att/data_pres', [AdminController::class, 'data_pres_admin'])->name('data_pres_admin');
+    Route::get('/att/data_pres/{id}/lihat', [AdminController::class, 'data_pres_lihat'])->name('data_pres_lihat', $id);
+    Route::get('/att/data_pres/{id}/lihat/edit', [AdminController::class, 'edit_data_pres_lihat'])->name('edit_data_pres_lihat', $id);
+    Route::post('/att/data_pres/{id}/lihat/edit/update', [AdminController::class, 'edit_data_pres_lihat_update'])->name('edit_data_pres_lihat_update', $id);
+    Route::get('/att/{id}/hapus_pres', [AdminController::class, 'hapus_pres'])->name('hapus_pres', $id);
 
     // Kelas
     Route::post('/siswa/tambah_kelas', [AdminController::class, 'tambah_kelas'])->name('tambah_kelas');
@@ -53,4 +57,6 @@ Route::group(['prefix' => 'home/data', 'middleware' => 'can:isGuru'], function($
 Route::group(['prefix' => 'home/attendance', 'middleware' => 'can:isSiswa'], function(){
     Route::get('/absensi', [SiswaController::class, 'index'])->name('absensi');
     Route::post('/absensi/masuk', [SiswaController::class, 'masuk'])->name('masuk');
+
+    Route::get('/data_pres', [SiswaController::class, 'data_pres'])->name('data_pres');
 });

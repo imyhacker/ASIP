@@ -43,5 +43,12 @@ class SiswaController extends Controller
         }else{
             return redirect()->back()->with('error', 'Data Presensi Hari Ini Sudah Ada');
         }
+
+
+    }
+    public function data_pres()
+    {
+        $data = Absen::where('name', Auth::user()->name)->orderBy('id', 'DESC')->get();
+        return view('Dashboard/Siswa/attendance/data_pres', compact('data'));
     }
 }

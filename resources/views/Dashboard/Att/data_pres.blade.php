@@ -4,6 +4,8 @@
       <div class="navbar-bg"></div>
       <x-dcore.nav />
       <x-dcore.sidebar />
+      <x-dcore.sweet />
+
       <div class="main-content">
         <section class="section">
         <!-- MAIN OF CENTER CONTENT -->
@@ -22,6 +24,7 @@
                                 <th>Kelas</th>
                                 <th>Jam Masuk</th>
                                 <th>Foto</th>
+                                <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,7 +34,7 @@
                                 <td>{{$no++}}</td>
                                 <td>{{$d->name}}</td>
                                 <td>{{$d->kelas}}</td>
-                                <td>{{$d->created_at->format('l, m Y H:i')}}</td>
+                                <td>{{$d->created_at->format('l, d M Y H:i')}}</td>
                                 <td>
                                 @if(empty($d->foto))
                                 <span class="badge badge-danger">Foto Tidak Ada</span>
@@ -39,7 +42,11 @@
                                 <span class="badge badge-success">Foto Ada</span>
                                 @endif
                                 </td>
-                               
+                                <td>
+                                    <a href="{{route('data_pres_lihat', $d->id)}}" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i></a>
+                                    <a href="{{route('hapus_pres', $d->id)}}" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

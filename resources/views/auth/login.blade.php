@@ -27,11 +27,7 @@
                 <div class="form-group">
                     <div class="d-block">
                         <label for="password" class="control-label">Password</label>
-                        <div class="float-right">
-                            <a href="{{ route('password.request') }}" class="text-small">
-                                Forgot Password?
-                            </a>
-                        </div>
+                        
                     </div>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                         name="password" required autocomplete="current-password">
@@ -65,9 +61,7 @@
 </div>
 </div>
 </div>
-<div class="mt-5 text-muted text-center">
-    Don't have an account? <a href="{{url('/register')}}">Create One</a>
-</div>
+
 <x-footer />
 
 @stop

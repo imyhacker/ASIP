@@ -216,4 +216,32 @@ class AdminController extends Controller
         return view('Dashboard/Att/index', compact('data'));
         //dd($data);
     }
+    public function data_pres_admin()
+    {
+        $data = Absen::all();
+        return view('Dashboard/Att/data_pres', compact('data'));
+    }
+    public function data_pres_lihat($id)
+    {
+        $data = Absen::find($id);
+        return view('Dashboard/Att/lihat', compact('data'));
+    }
+    public function edit_data_pres_lihat($id)
+    {
+        $data = Absen::find($id);
+        return view('Dashboard/Att/edit', compact('data'));
+    }
+    public function edit_data_pres_lihat_update(Request $request, $id)
+    {
+        $data = Absen::find($id)->update([
+            'created_at' => $request->input('created_at')
+        ]);
+        return redirect()->route('data_pres_admin')->with('success', 'Data Berhasil Diubah');
+    }
+    public function hapus_pres($id)
+    {
+        $data = Absen::find($id)->delete();
+        return redirect()->route('data_pres_admin')->with('success', 'Data Berhasil Di Hapus');
+
+    }
 }

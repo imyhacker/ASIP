@@ -28,6 +28,7 @@
     $('#table_data_kelas').DataTable();
     $('#table_guru').DataTable();
     $('#table_absen').DataTable();
+    $('#table_data_pres').DataTable();
 
 
 } );
